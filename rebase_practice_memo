@@ -1,0 +1,23 @@
+From what I understand, rebase is an alternative to merge. There are advantages and disadvantages to each. Both are used to combine files, but rebase has (among other things) the neat additional power to clean up your commit history. This is useful if you have a lot of small commits cluttering your history, and you are about to combine your work with other people's (on a team, for example). It's good practice to clean up the history to be the most clear and readable that you can, so that the other people who will be interacting with your code can easily look back through the significant things you did. 
+
+To learn more, I read all about rebase here:
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview
+This is a lesson that compares merge and rebase, but a significant amount of it is devoted to exploring use cases for rebase, times when rebase is not appropriate, and some neat rebase commands. 
+
+I learned about moving the branch you've been working on to the end of master, to make a more linear history using
+git checkout <your branch>
+git rebase master
+
+This is an automatic rebase, which rewrites the commit history and integrates things as it sees fit.
+
+I learned about interactive rebase, which lets you rewrite the commit history yourself. This is really useful for the case in which you want to clean up your commit log before making your code public. 
+git checkout <your branch> 
+git rebase -i master
+This opens a list of commits, which you can manipultate, change, and combine until they are beautiful using the commands that are conveniently listed at the bottom of the screen. 
+My favorite is to use an interactive rebase on your own commit history
+git rebase -i HEAD <a number or some carats>
+because I often make typos and sometimes I commit them before I notice them. This can clutter up the log pretty quickly. 
+
+
+To practice some of the cool things I learned about rebase, I made a really useless, silly piece of code, and then made a branches of it (random) and made changes in both random and master. 
+
